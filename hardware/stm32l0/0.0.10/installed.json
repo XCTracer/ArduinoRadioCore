@@ -1,0 +1,68 @@
+{
+  "packages": [
+    {
+      "name": "TleraCorp",
+      "maintainer": "Tlera Corp",
+      "websiteUrl": "https://github.com/grumpyoldpizza/ArduinoCore-stm32l0",
+      "Url": "https://grumpyoldpizza.github.io/ArduinoCore-stm32l0/package_stm32l0_boards_index.json",
+      "email": "grumpyoldpizza@gmail.com",
+      "platforms": [
+        {
+          "name": "Tlera Corp STM32L0 Boards",
+          "architecture": "stm32l0",
+          "version": "0.0.10",
+          "deprecated": false,
+          "category": "Contributed",
+          "url": "https://github.com/grumpyoldpizza/ArduinoCore-stm32l0/archive/0.0.10.tar.gz",
+          "archiveFileName": "ArduinoCore-stm32l0-0.0.10.tar.gz",
+          "checksum": "MD5:eecfd6198fa454b6dbc3149b2eebec3f",
+          "size": "9758702",
+          "boards": [
+            {
+              "name": "Grasshopper-L082CZ"
+            },
+            {
+              "name": "Cricket-L082CZ"
+            },
+            {
+              "name": "Cicada-L082CZ"
+            },
+            {
+              "name": "Gnat-L082CZ"
+            },
+            {
+              "name": "B-L072Z-LRWAN1"
+            },
+            {
+              "name": "I-NUCLEO-LRWAN1"
+            },
+            {
+              "name": "P-NUCLEO-LRWAN1"
+            },
+            {
+              "name": "NUCLEO-L053R8"
+            },
+            {
+              "name": "NUCLEO-L073RZ"
+            }
+          ],
+          "help": {},
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "arm-none-eabi-gcc",
+              "version": "4.8.3-2014q1"
+            }
+          ],
+          "discoveryDependencies": [],
+          "monitorDependencies": []
+        }
+      ],
+      "tools": [],
+      "help": {
+        "online": "https://github.com/grumpyoldpizza/ArduinoCore-stm32l0/issues"
+      }
+    }
+  ],
+  "IsTrusted": false
+}

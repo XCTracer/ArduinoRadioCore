@@ -1,0 +1,64 @@
+menu.usb=USB Type
+menu.speed=CPU Speed
+menu.opt=Optimize
+
+##############################################################
+
+# Grasshopper2-L072
+# ---------------------------------------
+Grasshopper2-L072.name=Grasshopper2-L072
+Grasshopper2-L072.vid.0=0x1209
+Grasshopper2-L072.pid.0=0x6665
+
+Grasshopper2-L072.upload.tool=stm32l0_dfu
+Grasshopper2-L072.upload.protocol=dfu
+Grasshopper2-L072.upload.maximum_size=196608
+Grasshopper2-L072.upload.maximum_data_size=20480
+Grasshopper2-L072.upload.use_1200bps_touch=true
+Grasshopper2-L072.upload.wait_for_upload_port=false
+Grasshopper2-L072.upload.native_usb=false
+
+Grasshopper2-L072.build.mcu=cortex-m0plus
+Grasshopper2-L072.build.f_cpu=32000000L
+Grasshopper2-L072.build.board=STM32L0_GRASSHOPPER2
+Grasshopper2-L072.build.arch=stm32l0
+Grasshopper2-L072.build.core=arduino
+Grasshopper2-L072.build.vid=0x1209
+Grasshopper2-L072.build.pid=0x6665
+Grasshopper2-L072.build.did=0xffff
+Grasshopper2-L072.build.usb_manufacturer="Tlera Corporation"
+Grasshopper2-L072.build.usb_product="Grasshopper2"
+Grasshopper2-L072.build.usb_type=USB_TYPE_CDC
+Grasshopper2-L072.build.extra_flags=-DSTM32L072xx -march=armv6-m -mthumb -mabi=aapcs -mfloat-abi=soft -fsingle-precision-constant {build.usb_flags}
+Grasshopper2-L072.build.ldscript=linker_scripts/STM32L072CZ_FLASH.ld
+Grasshopper2-L072.build.openocdscript=openocd_scripts/grasshopper2-l072.cfg
+Grasshopper2-L072.build.variant=Grasshopper2-L072
+Grasshopper2-L072.build.variant_system_libs="-L{runtime.platform.path}/system/STM32L0xx/Lib" "-L{runtime.platform.path}/system/CMSIS/Lib" -lstm32l072xx -larm_cortexM0l_math
+Grasshopper2-L072.build.variant_system_include="-I{runtime.platform.path}/system/CMSIS/Include" "-I{runtime.platform.path}/system/CMSIS/Device/ST/STM32L0xx/Include" "-I{runtime.platform.path}/system/STM32L0xx/Include"
+
+Grasshopper2-L072.menu.speed.32=32 MHz
+Grasshopper2-L072.menu.speed.32.build.f_cpu=32000000L
+Grasshopper2-L072.menu.speed.16=16 MHz (No USB)
+Grasshopper2-L072.menu.speed.16.build.f_cpu=16000000L
+Grasshopper2-L072.menu.speed.4=4.2 MHz (No USB)
+Grasshopper2-L072.menu.speed.4.build.f_cpu=4200000L
+
+Grasshopper2-L072.menu.opt.os=Smallest Code
+Grasshopper2-L072.menu.opt.os.build.flags.optimize=-Os
+Grasshopper2-L072.menu.opt.os.build.flags.ldspecs=--specs=nano.specs
+Grasshopper2-L072.menu.opt.o1=Fast
+Grasshopper2-L072.menu.opt.o1.build.flags.optimize=-O1
+Grasshopper2-L072.menu.opt.o1.build.flags.ldspecs=
+Grasshopper2-L072.menu.opt.o2=Faster
+Grasshopper2-L072.menu.opt.o2.build.flags.optimize=-O2
+Grasshopper2-L072.menu.opt.o2.build.flags.ldspecs=
+Grasshopper2-L072.menu.opt.o3=Fastest
+Grasshopper2-L072.menu.opt.o3.build.flags.optimize=-O3
+Grasshopper2-L072.menu.opt.o3.build.flags.ldspecs=
+
+Grasshopper2-L072.menu.usb.cdc=Serial
+Grasshopper2-L072.menu.usb.cdc.build.usb_type=USB_TYPE_CDC
+Grasshopper2-L072.menu.usb.cdc_hid=Serial + Keyboard + Mouse
+Grasshopper2-L072.menu.usb.cdc_hid.build.usb_type=USB_TYPE_CDC_HID
+Grasshopper2-L072.menu.usb.none=No USB
+Grasshopper2-L072.menu.usb.none.build.usb_type=USB_TYPE_NONE
