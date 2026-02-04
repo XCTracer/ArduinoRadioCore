@@ -29,6 +29,52 @@ namespace Radio {
         Unknown
     };
 
+    enum class PulseShape : uint8_t {
+        NO_FILTER = 0x00,
+        BT_0_3    = 0x08,
+        BT_0_5    = 0x09,
+        BT_0_7    = 0x0A,
+        BT_1_0    = 0x0B
+    };
+
+    enum class LoRaBandwidth : uint8_t {
+        BW_7_8    = 0x00,  // 7.8 kHz
+        BW_10_4   = 0x08,  // 10.4 kHz
+        BW_15_6   = 0x01,  // 15.6 kHz
+        BW_20_8   = 0x09,  // 20.8 kHz
+        BW_31_25  = 0x02,  // 31.25 kHz
+        BW_41_7   = 0x0A,  // 41.7 kHz
+        BW_62_5   = 0x03,  // 62.5 kHz
+        BW_125    = 0x04,  // 125 kHz
+        BW_250    = 0x05,  // 250 kHz
+        BW_500    = 0x06   // 500 kHz
+    };
+
+    enum class GfskBandwidth : uint8_t {
+        BW_NONE    = 0x00,  // Uninitialized/Undefined
+        BW_4_8     = 0x1F,  // 4.8 kHz
+        BW_5_8     = 0x17,  // 5.8 kHz
+        BW_7_3     = 0x0F,  // 7.3 kHz
+        BW_9_7     = 0x1E,  // 9.7 kHz
+        BW_11_7    = 0x16,  // 11.7 kHz
+        BW_14_6    = 0x0E,  // 14.6 kHz
+        BW_19_5    = 0x1D,  // 19.5 kHz
+        BW_23_4    = 0x15,  // 23.4 kHz
+        BW_29_3    = 0x0D,  // 29.3 kHz
+        BW_39_0    = 0x1C,  // 39.0 kHz
+        BW_46_9    = 0x14,  // 46.9 kHz
+        BW_58_6    = 0x0C,  // 58.6 kHz
+        BW_78_2    = 0x1B,  // 78.2 kHz
+        BW_93_8    = 0x13,  // 93.8 kHz
+        BW_117_3   = 0x0B,  // 117.3 kHz
+        BW_156_2   = 0x1A,  // 156.2 kHz
+        BW_187_2   = 0x12,  // 187.2 kHz
+        BW_234_3   = 0x0A,  // 234.3 kHz
+        BW_312_0   = 0x19,  // 312.0 kHz
+        BW_373_6   = 0x11,  // 373.6 kHz
+        BW_467_0   = 0x09   // 467.0 kHz
+    };
+
     class PacketInfo {
         public:
             int8_t      rssi;
@@ -47,7 +93,8 @@ namespace Radio {
 
             // Configuration
             void configure_lora(uint32_t freq_khz, uint16_t bw_khz, uint8_t sf, uint8_t cr, uint8_t *sync_word);
-            void configure_gfsk(uint32_t freq_khz, uint32_t bitrate, uint32_t fdev, uint8_t *sync_word, size_t sw_len);
+            void configure_gfsk(uint32_t freq_khz, uint32_t bitrate, uint32_t fdev, 
+                uint8_t *sync_word, size_t sw_len, PulseShape pulse = PulseShape::BT_0_5, GfskBandwidth bw = GfskBandwidth::BW_234_3);
             void set_tx_power(int8_t power_dbm);
 
             // Mode control
@@ -122,24 +169,25 @@ namespace Radio {
             uint32_t _vctl_pin;
             uint32_t _irq_pin;
 
-            Modulation  modulation;
-            uint32_t    frequency_khz;
+            Modulation modulation;
+            uint32_t frequency_khz;
             
             // LoRa specific
-            uint16_t    lora_bw_khz;    // 125, 250, 500
-            uint8_t     lora_sf;        // 5-12
-            uint8_t     lora_cr;        // 5-8 (4/5 to 4/8)
+            uint16_t lora_bw_khz;    // 125, 250, 500
+            uint8_t lora_sf;        // 5-12
+            uint8_t lora_cr;        // 5-8 (4/5 to 4/8)
             
             // GFSK specific
-            uint32_t    gfsk_bitrate;
-            uint32_t    gfsk_fdev;      // Frequency deviation
-            uint8_t     gfsk_bw;        // Bandwidth index
+            uint32_t gfsk_bitrate;
+            uint32_t gfsk_fdev;      // Frequency deviation
+            GfskBandwidth gfsk_bw;        // Bandwidth index
+            PulseShape gfsk_pulse;
             
             // Common
-            int8_t      tx_power_dbm;   // -9 to +22
-            uint16_t    preamble_len;
-            uint8_t     sync_word[8];
-            uint8_t     sync_word_len;
+            int8_t tx_power_dbm;   // -9 to +22
+            uint16_t preamble_len;
+            uint8_t sync_word[8];
+            uint8_t sync_word_len;
 
             RadioMode sMode = RadioMode::MODE_STANDBY;
 

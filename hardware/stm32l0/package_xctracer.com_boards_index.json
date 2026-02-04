@@ -3,7 +3,7 @@
     {
       "name": "XCTracerRadio",
       "maintainer": "XCTracer.com",
-      "websiteURL": "https://xctracer.com/",
+      "websiteURL": "https://github.com/XCTracer/ArduinoRadioCore/",
       "email": "xctracer@xctracer.com",
       "platforms": [
         {
@@ -13,8 +13,8 @@
           "category": "Contributed",
           "url": "https://github.com/XCTracer/ArduinoRadioCore/tree/main/hardware/stm32l0/xctracer.zip",
           "archiveFileName": "xctracer.zip",
-          "checksum": "MD5:c366c089769277e0796468a78d358007",
-          "size": "42851783",
+          "checksum": "MD5:7ebccb8c7da36838718be7af4ec196b9",
+          "size": "42855105",
           "boards": [
             {"name": "Murata-1SJ-DevBoard"}
           ],

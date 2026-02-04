@@ -154,7 +154,10 @@ namespace Radio {
         }
     }
 
-    void SX1262Radio::configure_gfsk(uint32_t freq_khz, uint32_t bitrate, uint32_t fdev, uint8_t *sync_word, size_t sw_len) {
+    void SX1262Radio::configure_gfsk(uint32_t freq_khz, uint32_t bitrate,
+                                     uint32_t fdev, uint8_t* sync_word,
+                                     size_t sw_len, PulseShape pulse,
+                                     GfskBandwidth bw) {
         // Standby to XOSC
         standby(1);
 
@@ -171,7 +174,7 @@ namespace Radio {
 
             frequency_khz = 0;
             gfsk_bitrate = 0;
-            gfsk_bw = 0;
+            gfsk_bw = GfskBandwidth::BW_NONE;
             gfsk_fdev = 0;
         }
 
@@ -218,15 +221,15 @@ namespace Radio {
             reconfigured = true;
         }
 
-        if ((gfsk_bitrate != bitrate) || (gfsk_fdev != fdev)) {
+        if ((gfsk_bitrate != bitrate) || (gfsk_fdev != fdev) || (gfsk_bw != bw) || (gfsk_pulse != pulse)) {
             // Set modulation params
             uint32_t br = (32UL*32000000UL) / bitrate;
             uint32_t fd = (uint32_t)((float)fdev / 0.95367431640625f);
             
             uint8_t mod_params[8] = {
                 (uint8_t)(br >> 16), (uint8_t)(br >> 8), (uint8_t)br,
-                0x09,  // Pulse shape: Gaussian BT 0.5
-                0x0A,  // Bandwidth: 234.3 kHz
+                (uint8_t)pulse,
+                (uint8_t)(bw != GfskBandwidth::BW_NONE ? bw : gfsk_bw),
                 (uint8_t)(fd >> 16), (uint8_t)(fd >> 8), (uint8_t)fd
             };
             write_command(Command::SET_MODULATION_PARAMS, mod_params, 8);
@@ -255,6 +258,8 @@ namespace Radio {
 
             gfsk_bitrate = bitrate;
             gfsk_fdev = fdev;
+            gfsk_bw = bw != GfskBandwidth::BW_NONE ? bw : gfsk_bw;
+            gfsk_pulse = pulse;
             reconfigured = true;
         }
 
