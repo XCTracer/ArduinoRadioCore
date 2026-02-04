@@ -1,0 +1,36 @@
+{
+  "packages": [
+    {
+      "name": "XCTracerRadio",
+      "maintainer": "XCTracer.com",
+      "websiteURL": "https://xctracer.com/",
+      "email": "xctracer@xctracer.com",
+      "platforms": [
+        {
+          "name": "XCTracer Radio Boards",
+          "architecture": "stm32l0",
+          "version": "0.0.10",
+          "category": "Contributed",
+          "url": "https://github.com/XCTracer/ArduinoRadioCore/tree/main/hardware/stm32l0/xctracer.zip",
+          "archiveFileName": "xctracer.zip",
+          "checksum": "MD5:c366c089769277e0796468a78d358007",
+          "size": "42851783",
+          "boards": [
+            {"name": "Murata-1SJ-DevBoard"}
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "arduino",
+              "name": "arm-none-eabi-gcc",
+              "version": "4.8.3-2014q1"
+            }
+          ]
+        }
+
+
+      ],
+      "tools": [
+      ]
+    }
+  ]
+}

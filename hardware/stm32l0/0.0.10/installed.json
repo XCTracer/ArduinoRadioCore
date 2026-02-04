@@ -1,49 +1,25 @@
 {
   "packages": [
     {
-      "name": "TleraCorp",
-      "maintainer": "Tlera Corp",
-      "websiteUrl": "https://github.com/grumpyoldpizza/ArduinoCore-stm32l0",
-      "Url": "https://grumpyoldpizza.github.io/ArduinoCore-stm32l0/package_stm32l0_boards_index.json",
-      "email": "grumpyoldpizza@gmail.com",
+      "name": "XCTracerRadio",
+      "maintainer": "XCTracer.com",
+      "websiteUrl": "https://xctracer.com/",
+      "Url": "",
+      "email": "xctracer@xctracer.com",
       "platforms": [
         {
-          "name": "Tlera Corp STM32L0 Boards",
+          "name": "XCTracer Radio Boards",
           "architecture": "stm32l0",
-          "version": "0.0.10",
+          "version": "0.1.0",
           "deprecated": false,
           "category": "Contributed",
-          "url": "https://github.com/grumpyoldpizza/ArduinoCore-stm32l0/archive/0.0.10.tar.gz",
-          "archiveFileName": "ArduinoCore-stm32l0-0.0.10.tar.gz",
-          "checksum": "MD5:eecfd6198fa454b6dbc3149b2eebec3f",
-          "size": "9758702",
+          "url": "http://localhost/xctracer.zip",
+          "archiveFileName": "xctracer.zip",
+          "checksum": "MD5:cf8ea7bf3c7c608956ae8229fb66b05b",
+          "size": "42913358",
           "boards": [
             {
-              "name": "Grasshopper-L082CZ"
-            },
-            {
-              "name": "Cricket-L082CZ"
-            },
-            {
-              "name": "Cicada-L082CZ"
-            },
-            {
-              "name": "Gnat-L082CZ"
-            },
-            {
-              "name": "B-L072Z-LRWAN1"
-            },
-            {
-              "name": "I-NUCLEO-LRWAN1"
-            },
-            {
-              "name": "P-NUCLEO-LRWAN1"
-            },
-            {
-              "name": "NUCLEO-L053R8"
-            },
-            {
-              "name": "NUCLEO-L073RZ"
+              "name": "Murata-1SJ-DevBoard"
             }
           ],
           "help": {},
@@ -59,9 +35,7 @@
         }
       ],
       "tools": [],
-      "help": {
-        "online": "https://github.com/grumpyoldpizza/ArduinoCore-stm32l0/issues"
-      }
+      "help": {}
     }
   ],
   "IsTrusted": false
