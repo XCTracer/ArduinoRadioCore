@@ -1,9 +1,9 @@
-# Arduino Core for XCTracer Radio Modules
+# Arduino Core for XCTracer Radio Board
 
 ## Supported boards
 
 ### XCTracer
- * Murata 1SJ Radio Module
+ * Murata 1SJ Radio Board
 
 ## Installing
 
@@ -16,9 +16,9 @@
  5. Open the Boards Manager from the Tools -> Board menu and install "XCTracer Radio Boards"
  6. Select your board from the Tools -> Board menu
 
-## Recovering from a faulty sketch for Tlera Corp Boards
+## Recovering from a faulty sketch
 
- Sometimes a faulty sketch can render the normal USB Serial based integration into the Arduindo IDE not working. In this case plugin the STM32L0 board and toggle the RESET button while holding down the BOOT button and program a known to be working sketch to go back to a working USB Serial setup.
+ Sometimes a faulty sketch can render the normal USB Serial based integration into the Arduindo IDE not working. In this case plugin the Murata 1SJ Radio Board board and toggle the RESET button while holding down the BOOT button and program a known to be working sketch to go back to a working USB Serial setup.
 
 ## Credits
 
