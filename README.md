@@ -12,7 +12,7 @@
  1. [Download and install the Arduino IDE](https://www.arduino.cc/en/software/) (at least version v2.3.3)
  2. Start the Arduino IDE
  3. Go into Preferences
- 4. Add ```https://github.com/XCTracer/ArduinoRadioCore/blob/main/hardware/stm32l0/package_xctracer.com_boards_index.json``` as an "Additional Board Manager URL"
+ 4. Add ```https://github.com/XCTracer/ArduinoRadioCore/raw/refs/heads/main/hardware/stm32l0/package_xctracer.com_boards_index.json``` as an "Additional Board Manager URL"
  5. Open the Boards Manager from the Tools -> Board menu and install "XCTracer Radio Boards"
  6. Select your board from the Tools -> Board menu
 
