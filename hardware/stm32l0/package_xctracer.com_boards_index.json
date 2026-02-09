@@ -11,7 +11,7 @@
           "architecture": "stm32l0",
           "version": "0.0.10",
           "category": "Contributed",
-          "url": "https://github.com/XCTracer/ArduinoRadioCore/tree/main/hardware/stm32l0/xctracer.zip",
+          "url": "https://github.com/XCTracer/ArduinoRadioCore/raw/refs/heads/main/hardware/stm32l0/xctracer.zip",
           "archiveFileName": "xctracer.zip",
           "checksum": "MD5:966e8b2ef5f18c5b8bbc97518399bb29",
           "size": "42858267",
