@@ -29,7 +29,8 @@ Murata-1SJ-DevBoard.build.pid=0x6665
 Murata-1SJ-DevBoard.build.did=0xffff
 Murata-1SJ-DevBoard.build.usb_manufacturer="XCTracer"
 Murata-1SJ-DevBoard.build.usb_product="Murata1SJDevBoard"
-Murata-1SJ-DevBoard.build.usb_type=USB_TYPE_CDC
+Murata-1SJ-DevBoard.build.usb_type=USB_TYPE_NONE
+Murata-1SJ-DevBoard.build.relocation=OFFSET_RELOCATION_BOOTLOADER
 Murata-1SJ-DevBoard.build.extra_flags=-DSTM32L072xx -march=armv6-m -mthumb -mabi=aapcs -mfloat-abi=soft -fsingle-precision-constant {build.usb_flags}
 Murata-1SJ-DevBoard.build.openocdscript=openocd_scripts/Murata-1SJ-DevBoard.cfg
 Murata-1SJ-DevBoard.build.variant=Murata-1SJ-DevBoard
@@ -65,5 +66,7 @@ Murata-1SJ-DevBoard.menu.usb.none.build.usb_type=USB_TYPE_NONE
 
 Murata-1SJ-DevBoard.menu.offset.zero=Zero (no offset)
 Murata-1SJ-DevBoard.menu.offset.zero.build.ldscript=linker_scripts/STM32L072CZ_FLASH.ld
+Murata-1SJ-DevBoard.menu.offset.zero.build.relocation=OFFSET_RELOCATION_ZERO
 Murata-1SJ-DevBoard.menu.offset.boot=For bootloader (offset at 0x08004000)
 Murata-1SJ-DevBoard.menu.offset.boot.build.ldscript=linker_scripts/STM32L072CZ_FLASH_boot.ld
+Murata-1SJ-DevBoard.menu.offset.boot.build.relocation=OFFSET_RELOCATION_BOOTLOADER

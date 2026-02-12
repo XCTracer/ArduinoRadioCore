@@ -9,12 +9,12 @@
         {
           "name": "XCTracer Radio Boards",
           "architecture": "stm32l0",
-          "version": "0.0.10",
+          "version": "0.0.11",
           "category": "Contributed",
           "url": "https://github.com/XCTracer/ArduinoRadioCore/raw/refs/heads/main/hardware/stm32l0/xctracer.zip",
           "archiveFileName": "xctracer.zip",
-          "checksum": "MD5:966e8b2ef5f18c5b8bbc97518399bb29",
-          "size": "42858267",
+          "checksum": "MD5:a4720954465a91497dcd418e8cdbd944",
+          "size": "42496888",
           "boards": [
             {"name": "Murata-1SJ-DevBoard"}
           ],
