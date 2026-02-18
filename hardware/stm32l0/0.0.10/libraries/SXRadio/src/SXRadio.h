@@ -117,6 +117,9 @@ namespace Radio {
             RadioMode get_mode(void);
             Modulation get_modulation(void);
 
+            // Test mode support
+            void set_continuous_wave(uint32_t freq_khz, int8_t power_dbm);
+            int16_t get_rssi_inst(void);
 
         private:
 

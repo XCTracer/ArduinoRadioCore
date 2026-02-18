@@ -425,6 +425,32 @@ namespace Radio {
         return modulation;
     }
 
+    void SX1262Radio::set_continuous_wave(uint32_t freq_khz, int8_t power_dbm) {
+        // Set frequency
+        uint32_t freq = (uint64_t)freq_khz * 1048576 / 1000;
+        uint8_t freq_buf[4] = {
+            (uint8_t)(freq >> 24),
+            (uint8_t)(freq >> 16),
+            (uint8_t)(freq >> 8),
+            (uint8_t)(freq)
+        };
+        write_command(Command::SET_RF_FREQUENCY, freq_buf, 4);
+
+        // Set TX power
+        set_tx_power(power_dbm);
+
+        // Set CW mode
+        write_command(Command::CMD_SET_TX_CW, NULL, 0);
+    }
+
+    int16_t SX1262Radio::get_rssi_inst(void) { 
+        uint8_t data[2];
+        read_command(Command::GET_RSSI_INST, data, 2);
+        // data[0] = status, data[1] = rssiInst
+        // RSSI in dBm = -rssiInst/2
+        return -(int16_t)data[1] / 2;
+     }
+
     void SX1262Radio::spi_select(void) {
         digitalWrite(_nss_pin, LOW);
     }
