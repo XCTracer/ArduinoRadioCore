@@ -440,7 +440,7 @@ namespace Radio {
         set_tx_power(power_dbm);
 
         // Set CW mode
-        write_command(Command::CMD_SET_TX_CW, NULL, 0);
+        write_command(Command::SET_TX_CW, NULL, 0);
     }
 
     int16_t SX1262Radio::get_rssi_inst(void) { 
