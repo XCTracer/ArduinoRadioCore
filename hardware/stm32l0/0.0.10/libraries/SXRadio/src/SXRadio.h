@@ -99,7 +99,7 @@ namespace Radio {
 
             // Mode control
             void standby(int mode);
-            void start_rx(void);
+            void start_rx(bool rx_boost_enabled = false);
             void start_tx(const uint8_t* data, uint8_t len);
 
             // Data

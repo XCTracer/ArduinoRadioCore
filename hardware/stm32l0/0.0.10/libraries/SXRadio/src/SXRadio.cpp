@@ -252,10 +252,6 @@ namespace Radio {
             // Load sync word
             set_sync_word(sync_word, sw_len);
 
-            // Set RX gain to boosted mode for better sensitivity
-            // Register 0x08AC: 0x96 = boosted gain, 0x94 = power saving
-            write_register(0x08AC, 0x96);
-
             gfsk_bitrate = bitrate;
             gfsk_fdev = fdev;
             gfsk_bw = bw != GfskBandwidth::BW_NONE ? bw : gfsk_bw;
@@ -304,13 +300,17 @@ namespace Radio {
         sMode = RadioMode::MODE_STANDBY;
     }
 
-    void SX1262Radio::start_rx(void) {
+    void SX1262Radio::start_rx(bool rx_boost_enabled) {
         switch_rxtx(RadioMode::MODE_RX);
         standby(1);
 
         // Set buffer addresses
         uint8_t buf_addr[2] = {0x00, 0x00};  // TX base, RX base
         write_command(Command::SET_BUFFER_BASE_ADDR, buf_addr, 2);
+
+        // Set RX gain to boosted mode for better sensitivity
+        // Register 0x08AC: 0x96 = boosted gain, 0x94 = power saving
+        write_register(0x08AC, rx_boost_enabled ? 0x96 : 0x94);
 
         // Set RX with timeout 0 (continuous)
         uint8_t timeout[3] = {0xFF, 0xFF, 0xFF};
